@@ -1,7 +1,7 @@
 {
   "name": "liri_node_app",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a Language Interpretation and Recognition Interface. All screenshots and short clips will be posted to this README.rd",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/haleyashtonn/liri_node_app#readme",
   "dependencies": {
-    "dotenv": "^6.1.0",
+    "chalk": "^2.4.2",
+    "dotenv": "^6.2.0",
     "file-system": "^2.2.2",
+    "moment": "^2.24.0",
     "node-spotify-api": "^1.0.7",
     "request": "^2.88.0"
   }
