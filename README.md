@@ -1,4 +1,6 @@
-# liri_node_app
+# LIRI Node App
 
-This is a Language Interpretation and Recognition Interface.
-All screenshots and short clips will be posted to this README.rd
+###Like Siri, this is a Language Interpretation and Recognition Interface.
+
+
+

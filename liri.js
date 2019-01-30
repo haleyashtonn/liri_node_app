@@ -12,8 +12,13 @@ var liriReturn = process.argv[2];
 var input = process.argv[3];
 // var momemnt = require('moment');
 // moment().format();
+/// moment needed for bands in town? I did not add this. Noted for future dev
 var chalk = require('chalk');
-//switches
+
+
+
+
+//switch/case statements
 
 switch(liriReturn) {
     case "spotify-this-song":
@@ -28,7 +33,7 @@ switch(liriReturn) {
     doWhatItSays();
     break;
 
-    //this should default when inputting 'node liri.js'
+    //this should DEFAULT when inputting 'node liri.js'
 
 default: console.log(chalk.blue("\n" + "To use this LIRI CLI, type any of the following commands below after 'node liri.js': "+ "\n") +
     (chalk.magenta.bgWhite ("1. spotify-this-song 'any song title' " + "\n" +
@@ -37,12 +42,12 @@ default: console.log(chalk.blue("\n" + "To use this LIRI CLI, type any of the fo
     "4.Use quotes for titles with more than one word. GO!")));
 };
 
-//spotify function
+//Spotify function
 
 function spotifyThisSong(trackName) {
     var trackName = process.argv[3]; {
     if (!trackName) {
-        trackName = "Your Body Is a Wonderland";
+        trackName = "The Sign Ace of Base";
 
     };
     songRequest = trackName;
@@ -83,7 +88,7 @@ function movieThis(){
     request("http://www.omdbapi.com/?t=" + params + "&y=&plot=short&apikey=trilogy",  
     function (error, response, body) {
 		if (!error && response.statusCode == 200) {
-            // console.log(JSON.parse(body));
+           
 			var movieResults =
 			chalk.blue.bgWhite("~~~~~~~~~~~~~~~Movie Results~~~~~~~~~~~~~~~") + "\r\n" +
 			chalk.cyan("Title: ") + JSON.parse(body).Title +"\r\n"+
@@ -93,18 +98,18 @@ function movieThis(){
 			chalk.cyan("Country: ") + JSON.parse(body).Country +"\r\n"+
 			chalk.magenta("Language: ") + JSON.parse(body).Language +"\r\n"+
 			chalk.cyan("Plot: ") + JSON.parse(body).Plot + "\r\n"+
-			chalk.magenta("Actors: ") + JSON.parse(body).Actors +"\r\n"+
-			chalk.blue.bgWhite("~~~~~~~~~~~~~~~End of Movie Results ~~~~~~~~~~~~~~~") + "\r\n";
+			chalk.magenta("Actors: ") + JSON.parse(body).Actors +"\r\n`"+
+			chalk.blue.bgWhite("~~~~~~~~~~~~~End of Movie Results ~~~~~~~~~~~") + "\r\n";
 			console.log(movieResults);
-			log(movieResults); // calling log function to print results to log.txt file
+			log(movieResults); // all movie inputs are printed to the log.txt file....COOL! IT WORKED B-)
 			} else {
 				console.log("Error :"+ error);
-				return;
+				return;  
 			}
     });
     
 }
-// Reads what is in the random.txt file 
+// Reads and prints what is in the random.txt file 
 function doWhatItSays() {
 	fs.readFile("random.txt", "utf8", function(error, data){
 		if (error) {
@@ -116,13 +121,13 @@ function doWhatItSays() {
                 params = input;
                 console.log("The song to search is: " + params);
 				spotifyThisSong(params);
-				log(params); // calling log function to print results to log.txt file
+				log(params); 
 				}
         }
 	});
 }
 
-//The log function that records the results when called above 
+//The log function that records the results into log.txt
 function log(logResults) {
 	fs.appendFile("log.txt", logResults, (error) => {
 	    if(error) {
